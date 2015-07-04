@@ -1,20 +1,27 @@
 (function () {
-  'use strict';
+    'use strict';
 
-  function asModalContainer() {
-    return {
-      restrict: 'E',
-      transclude: false,
-      scope: {
-      	trigger: '='
-      },
-      link: function (scope, elem, attrs) {
-        scope.showModal = !scope.trigger;
-      }
-    };
-  }
+    function asModalContainer($log) {
+        return {
+            restrict: 'E',
+            transclude: true,
+            scope: {
+                trigger: '='
+            },
+            controller: function ($scope) {
+                $scope.modalVisible = !$scope.trigger;
+                $scope.showModal = function () {
+                    $scope.modalVisible = !$scope.modalVisible;
+                    $log.log($scope.modalVisible);
+                };
+            },
+            template: '<span ng-transclude></span>'
+        };
+    }
 
-  angular
-    .module('asModalDialogs')
-    .directive('asModalContainer', asModalContainer);
+    asModalContainer.$inject = ['$log'];
+
+    angular
+        .module('asModalDialogs')
+        .directive('asModalContainer', asModalContainer);
 }());
