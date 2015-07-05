@@ -32,7 +32,7 @@
 			<a href="#custom">Custom CSS Styles</a>
 		</li>
 		<li>
-			<a href="#examples">Examples</a>
+			<a href="#demos">Demos</a>
 		</li>
 		<li>
 			<a href="#install">Installation</a>
@@ -53,7 +53,7 @@
 		</tr>
 		<tr>
 			<td>
-				<h4>trigger<br/>true|false(default)</h4>
+				<h4>trigger<br/>true|false(default)(!IMPORTANT)</h4>
 			</td>
 			<td>
 				Indicates if the modal will be triggered by a button (or simple text), or if it will be showed automatically.
@@ -90,7 +90,7 @@
 		</tr>
 		<tr>
 			<td>
-				<h4>display<br/>css property(default:inline)</h4>
+				<h4>display<br/>css property(default:inline)(!IMPORTANT)</h4>
 			</td>
 			<td>
 				Sets the css display property to the trigger's container. It is useful if you want that the trigger be in the middle of a text or in a new line.
@@ -143,7 +143,7 @@
 		</tr>
 		<tr>
 			<td>
-				<h4>title</h4>
+				<h4>modal-title<br/>(!IMPORTANT)</h4>
 			</td>
 			<td>
 				Sets the modal's title.
@@ -296,36 +296,146 @@ angular.module('YourApp', ['asModalDialogs', /*Other dependencies*/]);
 		</tr>
 	</table>
 	
-	<h2 id="examples">Examples</h2> <a href="#">Up</a>
+	<h2 id="demos">Demos</h2> <a href="#">Up</a>
 
+	<pre class="prettyprint lang-html">
+&lt;as-modal-container trigger="true"&gt;
+	&lt;as-modal-trigger display="block"&gt;
+		Show Modal
+	&lt;/as-modal-trigger&gt;
+	&lt;as-modal-dialog modal-title="Modal Demo"&gt;
+		Demo message in the modal dialog box.
+	&lt;/as-modal-dialog&gt;
+&lt;/as-modal-container&gt;
+	</pre>
 	<as-modal-container trigger="true">
-		<as-modal-trigger size="none" display="block">Mostrar modal</as-modal-trigger>
-		<as-modal-dialog title="Probando" type="desition" mode="submit">
-			Probando ventana modal de tipo decision.
+		<as-modal-trigger display="block">
+			Show Modal
+		</as-modal-trigger>
+		<as-modal-dialog modal-title="Modal Demo">
+			Demo message in the modal dialog box.
 		</as-modal-dialog>
 	</as-modal-container>
 
+	<pre class="prettyprint lang-html">
+&lt;as-modal-container trigger="true"&gt;
+	&lt;as-modal-trigger size="small" color="green" display="block"&gt;
+		Show Modal
+	&lt;/as-modal-trigger&gt;
+	&lt;as-modal-dialog modal-title="Modal Demo"&gt;
+		Demo message in the modal dialog box.
+	&lt;/as-modal-dialog&gt;
+&lt;/as-modal-container&gt;
+	</pre>
 	<as-modal-container trigger="true">
-		<as-modal-trigger size="small" display="block">Mostrar modal</as-modal-trigger>
-		<as-modal-dialog title="Probando" type="desition" mode="submit">
-			Probando ventana modal de tipo decision.
+		<as-modal-trigger size="small" color="green" display="block">
+			Show Modal
+		</as-modal-trigger>
+		<as-modal-dialog modal-title="Modal Demo">
+			Demo message in the modal dialog box.
 		</as-modal-dialog>
 	</as-modal-container>
-
-	<as-modal-container trigger="true" display="block">
-		<as-modal-trigger color="red">Mostrar modal</as-modal-trigger>
-		<as-modal-dialog title="Probando" mode="hide">
-			Este es un aviso de la pagina hecho para probar la ventana modal de tipo 1.
-		</as-modal-dialog>
-	</as-modal-container>
-
+	
+	<pre class="prettyprint lang-html">
+&lt;as-modal-container trigger="true"&gt;
+	&lt;as-modal-trigger size="big" color="red" display="block"&gt;
+		Show Modal
+	&lt;/as-modal-trigger&gt;
+	&lt;as-modal-dialog modal-title="Modal Demo"&gt;
+		Demo message in the modal dialog box.
+	&lt;/as-modal-dialog&gt;
+&lt;/as-modal-container&gt;
+	</pre>
 	<as-modal-container trigger="true">
-		<as-modal-trigger color="green" size="big" display="block">Mostrar modal</as-modal-trigger>
-		<as-modal-dialog accept-color="red" title="Probando" type="desition" mode="submit">
-			Probando ventana modal de tipo decision.
+		<as-modal-trigger size="big" color="red" display="block">
+			Show Modal
+		</as-modal-trigger>
+		<as-modal-dialog modal-title="Modal Demo">
+			Demo message in the modal dialog box.
 		</as-modal-dialog>
 	</as-modal-container>
 
+	<pre class="prettyprint lang-html">
+&lt;as-modal-container trigger="true"&gt;
+	&lt;as-modal-trigger display="block"&gt;
+		Show Modal
+	&lt;/as-modal-trigger&gt;
+	&lt;as-modal-dialog modal-title="Modal Demo" type="desition"&gt;
+		Demo message in the modal dialog box.
+	&lt;/as-modal-dialog&gt;
+&lt;/as-modal-container&gt;
+	</pre>
+	<as-modal-container trigger="true">
+		<as-modal-trigger display="block">
+			Show Modal
+		</as-modal-trigger>
+		<as-modal-dialog modal-title="Modal Demo" type="desition">
+			Demo message in the modal dialog box.
+		</as-modal-dialog>
+	</as-modal-container>
+
+	<pre class="prettyprint lang-html">
+&lt;as-modal-container trigger="true"&gt;
+	&lt;as-modal-trigger display="block"&gt;
+		Show Modal
+	&lt;/as-modal-trigger&gt;
+	&lt;as-modal-dialog modal-title="Modal Demo" type="desition" action="http://github.com" accept-color="red"&gt;
+		Demo message in the modal dialog box.
+	&lt;/as-modal-dialog&gt;
+&lt;/as-modal-container&gt;
+	</pre>
+	<as-modal-container trigger="true">
+		<as-modal-trigger display="block">
+			Show Modal
+		</as-modal-trigger>
+		<as-modal-dialog modal-title="Modal Demo" type="desition" action="http://github.com" accept-color="red">
+			Demo message in the modal dialog box.
+		</as-modal-dialog>
+	</as-modal-container>
+
+	<pre class="prettyprint lang-html">
+&lt;as-modal-container trigger="true"&gt;
+	&lt;as-modal-trigger display="block"&gt;
+		Show Modal
+	&lt;/as-modal-trigger&gt;
+	&lt;as-modal-dialog modal-title="Modal Demo" type="desition" mode="hide" accept-color="green"&gt;
+		Demo message in the modal dialog box.
+	&lt;/as-modal-dialog&gt;
+&lt;/as-modal-container&gt;
+	</pre>
+	<as-modal-container trigger="true">
+		<as-modal-trigger display="block">
+			Show Modal
+		</as-modal-trigger>
+		<as-modal-dialog modal-title="Modal Demo" type="desition" mode="hide" accept-color="green">
+			Demo message in the modal dialog box.
+		</as-modal-dialog>
+	</as-modal-container>
+
+<pre class="prettyprint lang-html">
+&lt;form action=""&gt;
+	&lt;as-modal-container trigger="true"&gt;
+		&lt;as-modal-trigger display="block"&gt;
+			Show Modal
+		&lt;/as-modal-trigger&gt;
+		&lt;as-modal-dialog modal-title="Modal Demo" type="desition" mode="submit" accept-text="Yes, I'm sure" cancel-text="No, don't send it"&gt;
+			Demo message in the modal dialog box.
+		&lt;/as-modal-dialog&gt;
+	&lt;/as-modal-container&gt;
+&lt;/form&gt;
+	</pre>
+	<form action="">
+		<as-modal-container trigger="true">
+			<as-modal-trigger display="block">
+				Show Modal
+			</as-modal-trigger>
+			<as-modal-dialog modal-title="Modal Demo" type="desition" mode="submit" accept-text="Yes, I'm sure" cancel-text="No, don't send it">
+				Are you sure you want to send the form?
+			</as-modal-dialog>
+		</as-modal-container>
+	</form>
+
+	
 	<h2 id="install">Installation</h2> <a href="#">Up</a>
 	<pre class="prettify">
 		bower install as-modal-dialogs

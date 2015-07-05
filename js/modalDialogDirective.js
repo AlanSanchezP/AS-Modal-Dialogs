@@ -11,7 +11,7 @@
                 acceptColor: '@',
                 mode: '@',
                 action: '@',
-                title: '@',
+                modalTitle: '@',
                 acceptText: '@',
                 cancelText: '@'
             },
@@ -55,11 +55,12 @@
                     parent.showModal();
                 };
 
-                // Set okMode default value
+                // Set okMode and okAction default value
+                scope.okAction = '';
                 switch (scope.type) {
                 case 'desition':
                     scope.okMode = 'link';
-                    scope.action = scope.action === undefined ? '/' : scope.action;
+                    scope.okAction = scope.action === undefined ? '/' : scope.action;
                     break;
                 default:
                     scope.okMode = 'hide';
@@ -75,7 +76,7 @@
             },
             template: '<div class="{{shadowClass}}" ng-show="modalVisible()">' +
                         '<div class="{{containerClass}}">' +
-                        '<h3 ng-bind="title"></h3>' +
+                        '<h3 ng-bind="modalTitle"></h3>' +
                         '<div class="{{contentClass}}" ng-transclude></div>' +
                         // Set a simple call to showModal() if the okMode is 'hide' 
                         '<a class="{{buttonClass}} {{sizeClass}} {{colorClass}}" ng-if="okMode == \'hide\'" ng-click="showModal()" ng-bind="okText"></a>' +
