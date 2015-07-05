@@ -25,7 +25,14 @@ module.exports = function (grunt) {
       },
       compile: {
         files: {
-          'as_modal_dialogs.css': 'styl/main.styl'
+          'as-modal-dialogs.css': 'styl/main.styl'
+        }
+      }
+    },
+    cssmin: {
+      target: {
+        files: {
+          'as-modal-dialogs.min.css': 'as-modal-dialogs.css'
         }
       }
     },
@@ -49,15 +56,24 @@ module.exports = function (grunt) {
       },
       basic: {
         src: ['js/*.js'],
-        dest: 'as_modal_dialogs.js'
+        dest: 'as-modal-dialogs.js'
+      }
+    },
+    uglify: {
+      target: {
+        files: {
+          'as-modal-dialogs.min.js': ['as-modal-dialogs.js']
+        }
       }
     }
   });
   grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-jslint');
-  grunt.registerTask('default', ['stylus', 'jslint', 'concat', 'watch']);
+  grunt.registerTask('default', ['stylus', 'cssmin', 'jslint', 'concat', 'uglify', 'watch']);
   grunt.registerTask('compileStylus', ['stylus']);
-  grunt.registerTask('compileJavascript', ['jslint', 'concat']);
+  grunt.registerTask('compileJavascript', ['jslint', 'concat', 'uglify']);
 };
