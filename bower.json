@@ -1,6 +1,6 @@
 {
   "name": "as-modal-dialogs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "homepage": "http://alansanchezp.github.io/AS-Modal-Dialogs",
   "repository": {
     "type": "git",
@@ -27,7 +27,9 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "js",
+    "styl"
   ],
   "dependencies": {
     "angular": "~1.4.1"
