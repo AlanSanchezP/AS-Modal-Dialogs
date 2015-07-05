@@ -1,0 +1,295 @@
+<h2>API</h2>
+
+<ol>
+	<li>
+		<a href="#/api#directives">Directives</a>
+		<ol>
+			<li>
+				<a href="#/api#container">as-modal-container</a>
+			</li>
+			<li>
+				<a href="#/api#trigger">as-modal-trigger</a>
+			</li>
+			<li>
+				<a href="#/api#dialog">as-modal-dialog</a>
+			</li>
+		</ol>
+	</li>
+	<li>
+		<a href="#/api#custom">Custom CSS Styles</a>
+	</li>
+</ol>
+
+<h3 id="directives">Directives</h2> <a href="#/api">Up</a><br/>
+
+<div class="api-element">
+	<h4 id="container">as-modal-container</h4> <a href="#/api">Up</a>
+	<p>Contains modal's trigger and dialog into a &lt;span&gt;&lt;/span&gt; tag.</p>
+	<table>
+		<tr>
+			<th>
+				Attributes
+			</th>
+			<th>
+				Attributes description
+			</th>
+		</tr>
+		<tr>
+			<td class="first">
+				<b>trigger <span class="red">!OBLIGATORY</span></b>
+				<div class="values">true | false(default)</div>
+			</td>
+			<td>
+				Indicates if the modal will be triggered by a button (or simple text), or if it will be showed automatically.
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="api-element">
+	<h4 id="trigger">as-modal-trigger</h4> <a href="#/api">Up</a>
+	<p>Shows a button that will trigger the modal dialog. This directive will be hidden if the trigger attribute of as-modal-container is false.</p>
+	<table>
+		<tr>
+			<th>
+				Attributes
+			</th>
+			<th>
+				Attributes description
+			</th>
+		</tr>
+		<tr>
+			<td class="first">
+				<b>size</b>
+				<div class="values">small | medium(default) | big | none</div>
+			</td>
+			<td>
+				Sets the button's size (actually it is a css stylized &lt;a&gt; tag). <b>none</b> value sets the button as plain text.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>color</b>
+				<div class="values">blue(default) | green | red</div>
+			</td>
+			<td>
+				Sets the button's background color. If <b>size=none</b> this attribute will set the text color.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>display <span class="red">!OBLIGATORY</span></b>
+				<div class="values">css property(default:inline)</div>
+			</td>
+			<td>
+				Sets the css display property to the trigger's container. It is useful if you want that the trigger be in the middle of a text or in a new line.
+			</td>
+		</tr>
+	</table>
+</div>
+<div class="api-element">
+	<h3 id="dialog">as-modal-dialog</h3> <a href="#/api">Up</a>
+	<p>The most important directive. It contains the dialog by itself.</p>
+	<table>
+		<tr>
+			<th>
+				Attributes
+			</th>
+			<th>
+				Attributes description
+			</th>
+		</tr>
+		<tr>
+			<td class="first">
+				<b>type</b>
+				<div class="values">alert(default) | desition</div>
+			</td>
+			<td>
+				You can specify if the modal will be a simple alert or it will be used to take an important desition. The cancel button of <b>type=desition</b> will just hide the modal.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>accept-color</b>
+				<div class="values">blue(default) | green | red</div>
+			</td>
+			<td>
+				Sets the accept button's background color. You can choose the red color if you consider that click in the accept button is a dangerous action. If you choose <b>red</b>, the cancel button will have a blue color. 
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>mode</b>
+				<div class="values">hide(default if type="alert") | link(default if type="desition") | submit</div>
+			</td>
+			<td>
+				Specify if the accept button will just hide the modal, a &lt;a&gt; tag or the last step of a form.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>action</b>
+			</td>
+			<td>
+				Use this attribute only if you specified <b>mode=link</b>. It will set the href attribute of the &lt;a&gt; tag.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>modal-title <span class="red">!OBLIGATORY</span></b>
+			</td>
+			<td>
+				Sets the modal's title.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>accept-text</b>
+				<div class="values">(optional)default: Ok</div>
+			</td>
+			<td>
+				Sets the accept button's text.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>cancel-text</b>
+				<div class="values">(optional)default: Cancel</div>
+			</td>
+			<td>
+				Sets the cancel button's text.
+			</td>
+		</tr>
+	</table>
+</div>
+
+<h3 id="custom">CSS Styles (AngularJS constant)</h3> <a href="#/api">Up</a><br/>
+<p>You can use your own css styles for the buttons and the modal dialog box. Just change the value of the <b>asModalDialogsCss</b> constant.</p>
+
+<div class="api-element">
+	<h3>asModalDialogsCss</h3>
+
+	<p>Reconfigure the asModalDialogsCss constant before injecting the asModalDialogs module to your project.</p>
+
+	<pre>
+angular.module('asModalDialogs')
+	.constant('asModalDialogsCss', function () {
+		return newObject;
+	});
+
+angular.module('YourApp', ['asModalDialogs', /*Other dependencies*/]);
+	</pre>
+
+	<table>
+		<tr>
+			<th>
+				Object property <br>(Name of a css class)
+			</th>
+			<th>
+				Property description
+			</th>
+		</tr>
+		<tr>
+			<td class="first">
+				<b>button</b>
+			</td>
+			<td>
+				CSS Class that sets general styles that will be shared between all button's sizes and colors.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>redButton</b>
+			</td>
+			<td>
+				CSS Class that sets the red color.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>blueButton</b>
+			</td>
+			<td>
+				CSS Class that sets the blue color.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>greenButton</b>
+			</td>
+			<td>
+				CSS Class that sets the green color.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>smallButton</b>
+			</td>
+			<td>
+				CSS Class that sets font-size and margin of a small button.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>mediumButton</b>
+			</td>
+			<td>
+				CSS Class that sets font-size and margin of a medium button.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>bigButton</b>
+			</td>
+			<td>
+				CSS Class that sets font-size and margin of a big button.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>noButton</b>
+			</td>
+			<td>
+				CSS Class that reconfigure the button to be a simple text. <br><b>IMPORTANT</b> You must reconfigure your own color classes using the following syntax:
+				<pre>
+.your-no-button-class {
+	//new styles
+}
+.your-no-button-class.your-blue-button-class{
+	//new styles
+}
+.your-no-button-class.your-red-button-class{
+	//new styles
+}
+.your-no-button-class.your-green-button-class{
+	//new styles
+}
+				</pre>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>shadow</b>
+			</td>
+			<td>
+				CSS Class that sets dialog's shadow properties.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>modalBox</b>
+			</td>
+			<td>
+				CSS Class that sets the dialog box styles.
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<b>modalContent</b>
+			</td>
+			<td>
+				CSS Class that sets the dialog text div styles.
+			</td>
+		</tr>
+	</table>
+</div>
+<a href="#/api">Up</a>

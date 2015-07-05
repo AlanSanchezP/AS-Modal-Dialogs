@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="asModalDialogsPage">
+<head>
+	<meta charset="UTF-8">
+	<title>AS Modal Dialogs - {{title}}</title>
+	<script src="https://code.angularjs.org/1.3.14/angular.min.js"></script>
+	<script src="https://code.angularjs.org/1.3.14/angular-route.min.js"></script>
+	<script src="js/modals-app.js"></script>
+	<script src="js/modalContainerDirective.js"></script>
+	<script src="js/modalTriggerDirective.js"></script>
+	<script src="js/modalDialogDirective.js"></script>
+	<script src="js/page-app.js"></script>
+	<link rel="stylesheet" href="css/as_modal_dialogs.min.css">
+	<link rel="stylesheet" href="css/page.min.css">
+</head>
+<body>
+	<nav>
+		<h1>AS Modal Dialogs</h1>
+		<ul>
+			<li><a href="#/">Home</a></li>
+			<li><a href="#/demos">Demos</a></li>
+			<li><a href="#/api">API</a></li>
+			<li><a href="#/install">Installation</a></li>
+			<li><a href="https://github.com/AlanSanchezP/AS-Modal-Dialogs">View on GitHub</a></li>
+		</ul>
+	</nav>
+	
+	<main ng-view></main>
+	
+</body>
+</html>

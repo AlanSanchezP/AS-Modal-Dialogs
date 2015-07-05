@@ -1,0 +1,37 @@
+<h2 id="install">Installation</h2>
+	Install the as-modal-dialogs bower component into your project directory
+	<pre>
+bower install as-modal-dialogs
+	</pre>
+<h2>Use it in your web application</h2>
+	Inject the asModalDialogs module into your AngularJS application.
+
+	<pre>
+angular.module('YourApp', ['asModalDialogs', /*Other dependencies*/]);
+	</pre>
+
+	Import the .js and (optionally) .css files. Now you're ready to use the modal dialogs directives!
+
+	<pre>
+&lt;!DOCTYPE html&gt;
+&lt;html ng-app="YourApp"&gt;
+	&lt;head&gt;
+		&lt;script src="bower_components/angular/angular.min.js"&gt;&lt;/script&gt;
+		&lt;script src="bower_components/as-modal-dialogs/as-modal-dialogs.min.js"&gt;&lt;/script&gt;
+		&lt;link rel="stylesheet" href="bower_components/as-modal-dialogs/as-modal-dialogs.min.css" /&gt;
+		&lt;script src="js/your-app-file.js"&gt;&lt;/script&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		// Your HTML code
+
+		&lt;as-modal-container trigger="true"&gt;
+			&lt;as-modal-trigger display="block"&gt;
+				Trigger text
+			&lt;/as-modal-trigger&gt;
+			&lt;as-modal-dialog modal-title="Modal Title"&gt;
+				Modal dialog text.
+			&lt;/as-modal-dialog&gt;
+		&lt;/as-modal-container&gt;
+	&lt;/body&gt;
+&lt;/html&gt;
+	</pre>
