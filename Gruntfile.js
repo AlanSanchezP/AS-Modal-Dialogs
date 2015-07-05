@@ -16,15 +16,16 @@ module.exports = function (grunt) {
     },
     stylus: {
       options: {
-        use : [
+        use: [
           function () {
             return require('autoprefixer-stylus')('last 2 versions', 'ie 8');
           }
-        ]
+        ],
+        compress: false
       },
       compile: {
         files: {
-          'css/styles.min.css': 'styl/main.styl'
+          'as_modal_dialogs.css': 'styl/main.styl'
         }
       }
     },
@@ -41,33 +42,22 @@ module.exports = function (grunt) {
           ]
         }
       }
-    }//,
-    //concat: {
-    //  options: {
-    //    separator: ''
-    //  },
-    //  basic: {
-    //    src: ['app.js', 'js/*.js'],
-    //    dest: '<%= pkg.name %>.js'
-    //  }
-    //},
-    //uglify: {
-    //  options: {
-    //    banner: '/*! <%= pkg.name %> <%= grunt.template.today("dd-mm-yyyy") %> */\n'
-    //  },
-    //  dist: {
-    //    files: {
-    //      'js/<%= pkg.name %>.min.js': ['<%= concat.basic.dest %>']
-    //    }
-    //  }
-    //} 
+    },
+    concat: {
+      options: {
+        separator: ''
+      },
+      basic: {
+        src: ['js/*.js'],
+        dest: 'as_modal_dialogs.js'
+      }
+    }
   });
   grunt.loadNpmTasks('grunt-contrib-stylus');
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-jslint');
-  grunt.registerTask('default', ['stylus', 'jslint', 'watch']);
+  grunt.registerTask('default', ['stylus', 'jslint', 'concat', 'watch']);
   grunt.registerTask('compileStylus', ['stylus']);
-  grunt.registerTask('compileJavascript', ['jslint']);
+  grunt.registerTask('compileJavascript', ['jslint', 'concat']);
 };

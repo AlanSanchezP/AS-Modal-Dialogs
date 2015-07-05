@@ -1,11 +1,19 @@
 {
   "name": "as-modal-dialogs",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "homepage": "http://alansanchezp.github.io/AS-Modal-Dialogs",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:AlanSanchezP/AS-Modal-Dialogs.git"
+  },
   "authors": [
     "Alan Sanchez <sanchez2597asp@outlook.com>"
   ],
   "description": "Modal dialogs for angularJs",
-  "main": "app.js",
+  "main": [
+    "as_modal_dialogs.js",
+    "as_modal_dialogs.css"
+  ],
   "keywords": [
     "angular",
     "angularjs",
