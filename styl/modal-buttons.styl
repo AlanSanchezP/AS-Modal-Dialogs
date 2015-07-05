@@ -1,3 +1,5 @@
+// General styles
+
 .as-modal-button
 	border none
 	border-radius 3px
@@ -6,21 +8,70 @@
 	display inline-block
 	font-family 'Open Sans'
 	font-weight bold
+	margin 2px 5px
 	position relative
 	text-decoration none
 	transition background 0.2s
+
+.as-modal-no-button
+	border-radius none !important
+	display inline !important
+	font-family inherit !important
+	font-weight inherit !important
+	margin 0 !important
+	transition color 0.3s !important
+	
+// Color styles
 	
 .as-modal-blue-button
 	background as-blue-color
 		
 	&:hover
 		background lightness(as-blue-color, 42%)
-	
-.as-modal-medium-button
-	padding 10px 15px
 
 .as-modal-red-button
 	background as-red-color
 	
 	&:hover
 		background lightness(as-red-color, 42%)
+		
+.as-modal-green-button
+	background as-green-color
+		
+	&:hover
+		background lightness(as-green-color, 42%)
+	
+.as-modal-no-button.as-modal-blue-button
+	background none !important
+	color as-blue-color !important
+	
+	&:hover
+		color lightness(as-blue-color, 42%)
+		
+.as-modal-no-button.as-modal-red-button
+	background none !important
+	color as-red-color !important
+	
+	&:hover
+		color lightness(as-red-color, 42%)
+		
+.as-modal-no-button.as-modal-green-button
+	background none !important
+	color as-green-color !important
+	
+	&:hover
+		color lightness(as-green-color, 42%)
+		
+// Size styles
+
+.as-modal-small-button
+	font-size 15px
+	padding 5px 8px
+	
+.as-modal-medium-button
+	font-size 18px
+	padding 8px 12px
+	
+.as-modal-big-button
+	font-size 22px
+	padding 10px 15px

@@ -6,7 +6,7 @@
             button: 'as-modal-button',
             redButton: 'as-modal-red-button',
             blueButton: 'as-modal-blue-button',
-            greenButton: 'as-modal-blue-button',
+            greenButton: 'as-modal-green-button',
             smallButton: 'as-modal-small-button',
             mediumButton: 'as-modal-medium-button',
             bigButton: 'as-modal-big-button',

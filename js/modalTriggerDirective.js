@@ -2,7 +2,7 @@
     'use strict';
 
     /*jslint unparam: true*/
-    function asModalTrigger(asModalDialogsCss, $log) {
+    function asModalTrigger(asModalDialogsCss) {
         return {
             restrict: 'E',
             require: '^asModalContainer',
@@ -12,15 +12,22 @@
                 color: '@',
                 display: '@'
             },
-            link: function (scope, elem, attrs, ctrl) {
+            link: function (scope) {
+                // Get asModalContainer $scope and cssClasses object
                 var parent, css;
                 css = asModalDialogsCss();
                 parent = scope.$parent.$parent;
+
+                // Set main properties
                 scope.showTrigger = parent.trigger;
                 scope.showModal = parent.showModal;
+
+                // Set button class
                 scope.buttonStyle = css.button;
                 scope.sizeClass = '';
                 scope.colorClass = '';
+
+                // Set button size
                 switch (scope.size) {
                 case 'small':
                     scope.sizeClass = css.smallButton;
@@ -31,10 +38,11 @@
                 case 'none':
                     scope.sizeClass = css.noButton;
                     break;
-                // case 'medium':
                 default:
                     scope.sizeClass = css.mediumButton;
                 }
+
+                // Set button color
                 switch (scope.color) {
                 case 'green':
                     scope.colorClass = css.greenButton;
@@ -42,7 +50,6 @@
                 case 'red':
                     scope.colorClass = css.redButton;
                     break;
-                // case 'blue':
                 default:
                     scope.colorClass = css.blueButton;
                 }
@@ -54,7 +61,7 @@
     }
     /*jslint unparam: false*/
 
-    asModalTrigger.$inject = ['asModalDialogsCss', '$log'];
+    asModalTrigger.$inject = ['asModalDialogsCss'];
 
     angular
         .module('asModalDialogs')
